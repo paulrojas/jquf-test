@@ -25,10 +25,10 @@
             '$httpProvider', 'fileUploadProvider',
             function ($httpProvider, fileUploadProvider) {
                 delete $httpProvider.defaults.headers.common['X-Requested-With'];
-                fileUploadProvider.defaults.redirect = window.location.href.replace(
+                /*fileUploadProvider.defaults.redirect = window.location.href.replace(
                     /\/[^\/]*$/,
                     '/cors/result.html?%s'
-                );
+                );*/
                 if (isOnGitHub) {
                     // Demo settings:
                     angular.extend(fileUploadProvider.defaults, {
