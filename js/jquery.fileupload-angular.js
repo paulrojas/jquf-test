@@ -115,6 +115,7 @@
                             scope.replace(filesCopy, data.files);
                         });
                     }).then(function () {
+                        data.autoUpload = true;
                         if ((scope.option('autoUpload') ||
                                 data.autoUpload) &&
                                 data.autoUpload !== false) {
