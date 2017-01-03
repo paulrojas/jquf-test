@@ -16,7 +16,7 @@
     'use strict';
 
     var isOnGitHub = window.location.hostname === 'blueimp.github.io',
-        url = isOnGitHub ? '//jquery-file-upload.appspot.com/' : 'server/php/';
+        url = 'https://upload.wistia.com?access_token=6ed3a77b8aafa79278d1ca8527a73222271b41c92174ddd536db7da034c8d665;
 
     angular.module('demo', [
         'blueimp.fileupload'
@@ -36,9 +36,7 @@
                         // which actually support image resizing, but fail to
                         // send Blob objects via XHR requests:
                         disableImageResize: /Android(?!.*Chrome)|Opera/
-                            .test(window.navigator.userAgent),
-                        maxFileSize: 999000,
-                        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
+                            .test(window.navigator.userAgent)
                     });
                 }
             }
