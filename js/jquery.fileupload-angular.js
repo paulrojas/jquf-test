@@ -260,6 +260,10 @@
                     },
                     processing: function (data) {
                         return $element.fileupload('processing', data);
+                    },
+                    done: function (data) {
+                        Store.set({ msg: data.result.hashed_id });
+                        return $element.fileupload('done', data);
                     }
                 };
                 $scope.disabled = !$window.jQuery.support.fileInput;
@@ -332,7 +336,7 @@
                         } catch (ignore) {}
                     }
                 }).on('fileuploaddone', function (e, data) {
-                    Store.set({ msg: data.response.hashed_id });
+                    Store.set({ msg: data.result.hashed_id });
                 }).on([
                     'fileuploadadd',
                     'fileuploadsubmit',
