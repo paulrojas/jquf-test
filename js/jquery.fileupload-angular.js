@@ -199,7 +199,6 @@
         })
 
         .component("wistiaUploader",{
-            transclude: true,
             templateUrl: "wistia.template.html",
             controller: function () {
                 this.options = { autoUpload: true};
