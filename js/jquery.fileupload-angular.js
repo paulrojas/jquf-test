@@ -205,6 +205,14 @@
             }
         })
 
+        .component("wistiaPlayer",{
+            templateUrl: "player.template.html",
+            controller: function () {
+                this.show = true;
+                this.video_id = '5spfrjluv4';
+            }
+        })
+
         // The FileUploadController initializes the fileupload widget and
         // provides scope methods to control the File Upload functionality:
         .controller('FileUploadController', [
