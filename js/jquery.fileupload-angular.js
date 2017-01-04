@@ -228,6 +228,9 @@
             controller: function (Store) {
                 this.show = true;
                 this.videoid = Store.get();
+                this.$doCheck = function() {
+                    this.videoid = Store.get();
+                }
             }
         })
 
