@@ -198,6 +198,24 @@
             };
         })
 
+        .factory('Store', () => {
+            // hold a local copy of the state, setting its defaults
+            const state = {
+                data: {
+                    msg: ''
+                }
+            };
+            // expose basic getter and setter methods
+            return {
+                get() {
+                    return state.data;
+                },
+                set(data) {
+                    Object.assign(state.data, data);
+                }
+            };
+        })        
+
         .component("wistiaUploader",{
             templateUrl: "wistia.template.html",
             controller: function () {
@@ -207,19 +225,17 @@
 
         .component("wistiaPlayer",{
             templateUrl: "player.template.html",
-            bindings: {
-                videoid: '@'
-            },            
-            controller: function () {
+            controller: function (Store) {
                 this.show = true;
+                this.videoid = Store.get();
             }
         })
 
         // The FileUploadController initializes the fileupload widget and
         // provides scope methods to control the File Upload functionality:
         .controller('FileUploadController', [
-            '$scope', '$element', '$attrs', '$window', 'fileUpload',
-            function ($scope, $element, $attrs, $window, fileUpload) {
+            '$scope', '$element', '$attrs', '$window', 'fileUpload', 'Store',
+            function ($scope, $element, $attrs, $window, fileUpload, Store) {
                 var uploadMethods = {
                     progress: function () {
                         return $element.fileupload('progress');
@@ -315,11 +331,12 @@
                             data.result = angular.fromJson(data.jqXHR.responseText);
                         } catch (ignore) {}
                     }
+                }).on('fileuploaddone', function (e, data) {
+                    Store.set({ msg: data.response.hashed_id });
                 }).on([
                     'fileuploadadd',
                     'fileuploadsubmit',
                     'fileuploadsend',
-                    'fileuploaddone',
                     'fileuploadfail',
                     'fileuploadalways',
                     'fileuploadprogress',
