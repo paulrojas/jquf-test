@@ -207,6 +207,9 @@
 
         .component("wistiaPlayer",{
             templateUrl: "player.template.html",
+            bindings: {
+                videoid: '@'
+            },            
             controller: function () {
                 this.show = true;
                 this.video_id = '5spfrjluv4';
