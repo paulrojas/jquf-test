@@ -118,7 +118,8 @@
                         if ((scope.option('autoUpload') ||
                                 data.autoUpload) &&
                                 data.autoUpload !== false) {
-                            data.submit();
+                            if (data.form.action != undefined)
+                                data.submit();
                         }
                     });
                 },
