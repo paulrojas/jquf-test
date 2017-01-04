@@ -225,11 +225,12 @@
 
         .component("wistiaPlayer",{
             templateUrl: "player.template.html",
-            controller: function (Store) {
+            controller: function (Store, $scope) {
                 this.show = true;
                 this.videoid = Store.get();
                 this.$doCheck = function() {
                     this.videoid = Store.get();
+                    $scope.$apply();
                 }
             }
         })
