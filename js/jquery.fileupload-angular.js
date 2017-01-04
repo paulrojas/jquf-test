@@ -228,7 +228,6 @@
             controller: function (Store, $scope) {
                 this.show = true;
                 this.videoid = Store.get();
-                $scope.$apply();
             }
         })
 
