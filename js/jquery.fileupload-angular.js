@@ -253,6 +253,7 @@
                         $element.fileupload('option', option, data);
                     },
                     add: function (data) {
+                        Store.set({ msg: '' });
                         return $element.fileupload('add', data);
                     },
                     send: function (data) {
