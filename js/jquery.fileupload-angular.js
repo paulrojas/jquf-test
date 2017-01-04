@@ -93,7 +93,7 @@
                     }
                 },
                 add: function (e, data) {
-                    if (e.isDefaultPrevented()) {
+                    if (e.isDefaultPrevented() || data.form[0] == undefined) {
                         return false;
                     }
                     var scope = data.scope,
@@ -118,7 +118,6 @@
                         if ((scope.option('autoUpload') ||
                                 data.autoUpload) &&
                                 data.autoUpload !== false) {
-                            if (data.form[0] != undefined)
                                 data.submit();
                         }
                     });
