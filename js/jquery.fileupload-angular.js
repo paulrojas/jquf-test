@@ -200,6 +200,9 @@
 
         .component("wistiaUploader",{
             templateUrl: "wistia.template.html",
+            controller: function () {
+                this.options = { autoUpload: true};
+            }
         })
 
         // The FileUploadController initializes the fileupload widget and
