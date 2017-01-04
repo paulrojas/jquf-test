@@ -115,7 +115,6 @@
                             scope.replace(filesCopy, data.files);
                         });
                     }).then(function () {
-                        data.autoUpload = true;
                         if ((scope.option('autoUpload') ||
                                 data.autoUpload) &&
                                 data.autoUpload !== false) {
@@ -154,7 +153,7 @@
                     return scope.queue.length - scope.processing();
                 },
                 dataType: 'json',
-                autoUpload: false
+                autoUpload: true
             };
             this.$get = [
                 function () {
