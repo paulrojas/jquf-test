@@ -200,7 +200,7 @@
 
         .component("wistiaUploader",{
             templateUrl: "wistia.template.html",
-            controller: 'FileUploadController',
+            //controller: 'FileUploadController',
         })
 
         // The FileUploadController initializes the fileupload widget and
